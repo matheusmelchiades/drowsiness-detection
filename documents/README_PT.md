@@ -1,6 +1,6 @@
 # Drowsiness-detection 🤖📷⚠️
 
-O Projeto é sobre reconhecimento facial, se a pessoa está com sono ou não.
+O Projeto é sobre reconhecimento facial para detectar caso pessoa esteja com sono ou não.
 
 Você também pode ler este arquivo traduzido em
  - [English](../README.md)
