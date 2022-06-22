@@ -56,7 +56,7 @@ Mako==1.0.7
 MarkupSafe==1.1.0
 monotonic==1.5
 netifaces==0.10.4
-numpy==1.18.4
+numpy==1.22.0
 oauthlib==2.1.0
 olefile==0.46
 opencv-contrib-python==4.2.0.34
