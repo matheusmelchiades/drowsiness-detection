@@ -1,49 +1,73 @@
-# Drowsiness-detection 🤖📷⚠️
+# 😴 Drowsiness Detection
 
-Project about Face recognition that detect if the person is sleppy.
+> Real-time drowsiness detection system using facial landmarks and eye blink analysis — built to help keep drivers safe.
 
-You can also read a translated of this file in 
- - [Portuguese](./documents/README_PT.md)
+![Python](https://img.shields.io/badge/Python-3.3+-3776AB?style=flat-square&logo=python&logoColor=white)
+![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=flat-square&logo=opencv&logoColor=white)
+![dlib](https://img.shields.io/badge/dlib-008000?style=flat-square)
 
-***
+## 💡 About
 
-This project aims to provide a tool helps drivers, that work a lot time driving, reporting whether he is sleppy or not.
+This project uses computer vision and facial landmark detection to identify signs of drowsiness in real-time. It monitors the driver's eyes through a webcam and triggers alerts when drowsiness is detected.
 
-The implementation this algorithm was based in this article ["Real-Time Eye Blink Detection"](http://vision.fe.uni-lj.si/cvww2016/proceedings/papers/05.pdf), where covers how to detect face landmarks and how to mapping the eye position in the face. So with this data, the algorithm can to apply the intelligence to detect wheather the person is sleppy.
+Built on the research paper "Real-Time Eye Blink Detection using Facial Landmarks" — the system calculates the **Eye Aspect Ratio (EAR)** to determine if the person's eyes are closing.
 
-This is an example...
+### How It Works
 
-![example](./documents/example.gif)
-
-# Requirements
-
-- Python 3.3+
-
-# 📚 Libraries
-
-* [dlib](http://dlib.net/python/index.html) - To detect faces
-* [imutils](https://github.com/jrosebr1/imutils) - To handle operations with openCV.
-* [numpy](https://numpy.org/) - Provider a package to data easily. 
-* [scipy](https://www.scipy.org/) - Library used for scientific computing and technical computing.
-
-# ⚙ How to config?
-
-``` bash
-> python -m venv venv
-> pip install -r requirements.txt
-> source venv/bin/activate
+```
+Camera Feed → Face Detection → Facial Landmarks → Eye Aspect Ratio → Alert System
+                (dlib)           (68 points)        (EAR threshold)
 ```
 
-# 🚀 How to Run?
+1. **Face Detection** — Locates faces in the video stream using dlib
+2. **Landmark Extraction** — Maps 68 facial landmarks on each detected face
+3. **EAR Calculation** — Computes the Eye Aspect Ratio to measure eye openness
+4. **Alert Trigger** — When EAR drops below threshold for consecutive frames, an alert fires
 
-It's simple...
+## 🛠️ Tech Stack
 
-``` bash
-> python detector.py
+| Tool | Purpose |
+|------|---------|
+| **Python 3.3+** | Core language |
+| **dlib** | Face detection & facial landmarks |
+| **OpenCV** | Video capture & image processing |
+| **imutils** | OpenCV convenience functions |
+| **NumPy** | Numerical computations |
+| **SciPy** | Euclidean distance calculations |
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Python 3.3 or later
+- Webcam
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/matheusmelchiades/drowsiness-detection.git
+cd drowsiness-detection
+
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run the detector
+python detector.py
 ```
 
-# 🔗 References
+## 📚 References
 
-* [Euclidean distance](https://en.wikipedia.org/wiki/Euclidean_distance)
-* [face recognition](http://krasserm.github.io/2018/02/07/deep-face-recognition/)
-* [Face landmarks](https://medium.com/@aanilkayy/extract-eyes-in-face-i%CC%87mages-with-dlib-and-face-landmark-points-c45ef480c1)
+- Real-Time Eye Blink Detection using Facial Landmarks (Soukupová & Čech, 2016)
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+<p align="center">Made by <a href="https://github.com/matheusmelchiades">Matheus Maciel</a></p>
